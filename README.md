@@ -84,6 +84,8 @@
 # 测试香港解析 www.google.com
 # URL中的 "dns" 参数是 DNS 查询包的 Base64URL 编码
 curl -v "https://my-geo-dns.xxx.workers.dev/hk-query?dns=q80BAAABAAAAAAAAA3d3dwdnb29nbGUDY29tAAABAAE"
+OR
+curl --doh-url https://my-geo-dns.xxx.workers.dev/hk-query -v https://test.ipw.cn
 ```
 
 在响应头中，你应该能看到 `X-Dns-Cache: MISS` (首次) 或 `HIT` (后续)，以及 `X-Dns-Upstream` (实际响应的上游)。
