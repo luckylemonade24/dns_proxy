@@ -1,9 +1,9 @@
 name = "dns-proxy" # 你的 Worker 名称
 main = "src/index.ts"
-compatibility_date = "2024-04-05"
+compatibility_date = "2024-09-01"
 
 # 启用 Node.js 兼容性模式，以便使用 'dns-packet' 库
-node_compat = true
+nodejs_compat = true
 
 [vars]
 # 变量名: UPSTREAMS
