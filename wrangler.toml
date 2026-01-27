@@ -1,6 +1,6 @@
 name = "dns-proxy" # 你的 Worker 名称
 main = "src/index.ts"
-compatibility_date = "2024-04-05"
+compatibility_date = "2026-01-27"
 
 # 启用 Node.js 兼容性模式，以便使用 'dns-packet' 库
 node_compat = true
@@ -8,7 +8,11 @@ node_compat = true
 [vars]
 # 变量名: UPSTREAMS
 # 值: 逗号分隔的上游 DoH 服务器列表
-UPSTREAMS = "https://dns.cloudflare.com/dns-query,https://dns.google/dns-query,https://dns10.quad9.net/dns-query"
+UPSTREAMS = "https://dns.cloudflare.com/dns-query,https://dns.google/dns-query,https://dns10.quad9.net/dns-query,https://doh.pub/dns-query,https://dns.alidns.com/dns-query"
+
+# 变量名: EDNS-SH (对应路径 /sh-query)
+# 值: 上海的 EDNS IP
+EDNS_SH = "42.192.0.0"
 
 # 变量名: EDNS-HK (对应路径 /hk-query)
 # 值: 香港的 EDNS IP
