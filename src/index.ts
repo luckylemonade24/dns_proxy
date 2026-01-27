@@ -3,6 +3,7 @@ import dnsPacket from 'dns-packet';
 // 为环境变量定义类型接口，增强代码健壮性
 export interface Env {
   UPSTREAMS: string; // 逗号分隔的上游 DoH 服务器
+  EDNS_SH?: string;
   EDNS_HK?: string;
   EDNS_JP?: string;
   EDNS_US?: string;
@@ -35,7 +36,7 @@ async function handleRequest(
   // 1. 根据请求路径确定 EDNS IP
   const ednsIp = getEdnsIpForPath(pathname, env);
   if (!ednsIp) {
-    return new Response(`路径 ${pathname} 未配置 EDNS。请使用 /hk-query, /jp-query, 或 /us-query。`, { status: 404 });
+    return new Response(`路径 ${pathname} 未配置 EDNS。请使用 /sh-query, /hk-query, /jp-query, 或 /us-query。`, { status: 404 });
   }
 
   // 2. 从请求中获取原始 DNS 查询
@@ -167,6 +168,7 @@ async function handleRequest(
 }
 
 const PATH_TO_ENV_MAP: { [key: string]: keyof Env } = {
+  '/sh-query': 'EDNS_SH',
   '/hk-query': 'EDNS_HK',
   '/jp-query': 'EDNS_JP',
   '/us-query': 'EDNS_US',
