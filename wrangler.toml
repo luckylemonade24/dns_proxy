@@ -1,6 +1,6 @@
 name = "dns-proxy" # 你的 Worker 名称
 main = "src/index.ts"
-compatibility_date = "2026-02-14"
+compatibility_date = "2026-01-27"
 
 # 启用 Node.js 兼容性模式，以便使用 'dns-packet' 库
 node_compat = true
